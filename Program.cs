@@ -47,7 +47,7 @@ namespace CA241118
             if (maxEmployee != null)
             {
                 Console.WriteLine($"6. feladat: A legöbbet kereső dolgozó a megadott részlegen" +
-                    $"\n\tNév: {maxEmployee.Nev}\n\tNem: {(maxEmployee.Neme ? "férfi" : "nő")}\n\tBelépés: {maxEmployee.Belepes}\n\tBér: {maxEmployee.Ber}");
+                    $"\n\tNév: {maxEmployee.Nev}\n\tNem: {(maxEmployee.Neme ? "férfi" : "nő")}\n\tBelépés: {maxEmployee.Belepes}\n\tBér: {maxEmployee.Ber} Forint");
             }
             else
             {
