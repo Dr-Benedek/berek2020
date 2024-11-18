@@ -21,25 +21,39 @@ namespace CA241118
 
             Console.Write($"5. feladat: Írd be egy részleg nevét: ");
             string resz = Console.ReadLine().ToLower();
-            int maxi = 0;
-            bool japvan = false;
-            for (int i = 1; i < lista.Count; i++)
-            {
-                if (lista[i].Reszleg == resz && lista[i].Ber > lista[maxi].Ber)
-                {
-                    maxi = i;
-                    japvan = true;
-                }
-            }
-            if (japvan)
+            //int maxi = 0;
+            //bool japvan = false;
+            //for (int i = 1; i < lista.Count; i++)
+            //{
+            //    if (lista[i].Reszleg == resz && lista[i].Ber > lista[maxi].Ber)
+            //    {
+            //        maxi = i;
+            //        japvan = true;
+            //    }
+            //}
+            //if (japvan)
+            //{
+            //    Console.WriteLine($"6. feladat: A legöbbet kereső dolgozó a megadott részlegen" +
+            //        $"\n\tNév: {lista[maxi].Nev}\n\tNem: {(lista[maxi].Neme ? "férfi" : "nő")}\n\tBelépés: {lista[maxi].Belepes}\n\tBér: {lista[maxi].Ber}");
+            //}
+            //else 
+            //{
+            //    Console.WriteLine($"6. feladat: A megadott részleg nem létezik a cégnél!");
+            //}
+            var maxEmployee = lista
+            .Where(x => x.Reszleg == resz)
+            .OrderByDescending(x => x.Ber)
+            .FirstOrDefault();
+            if (maxEmployee != null)
             {
                 Console.WriteLine($"6. feladat: A legöbbet kereső dolgozó a megadott részlegen" +
-                    $"\n\tNév: {lista[maxi].Nev}\n\tNem: {(lista[maxi].Neme ? "férfi" : "nő")}\n\tBelépés: {lista[maxi].Belepes}\n\tBér: {lista[maxi].Ber}");
+                    $"\n\tNév: {maxEmployee.Nev}\n\tNem: {(maxEmployee.Neme ? "férfi" : "nő")}\n\tBelépés: {maxEmployee.Belepes}\n\tBér: {maxEmployee.Ber}");
             }
-            else 
+            else
             {
                 Console.WriteLine($"6. feladat: A megadott részleg nem létezik a cégnél!");
             }
+
             var f7 = lista.GroupBy(b => b.Reszleg).OrderBy(g => g.Key);
             Console.WriteLine("7. feladat: Statisztika");
             foreach (var f in f7)
