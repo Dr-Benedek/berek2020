@@ -14,12 +14,12 @@ namespace CA241118
                 lista.Add(new(sr.ReadLine()));
             }
 
-            Console.WriteLine($"3. feladat: {lista.Count()} db dolgozó adatai találhatók a forrásban.");
+            Console.WriteLine($"3. feladat: Dolgozók száma: {lista.Count()} fő");
 
             var f4 = lista.Average(b => b.Ber);
-            Console.WriteLine($"4. feladat: {Math.Round(f4,1)}");
+            Console.WriteLine($"4. feladat: {Math.Round((f4 / 1000), 1)} eFt");
 
-            Console.Write($"5. feladat: Írd be egy részleg nevét: ");
+            Console.Write($"5. feladat: Kérem a részleg nevét: ");
             string resz = Console.ReadLine().ToLower();
             //int maxi = 0;
             //bool japvan = false;
@@ -30,6 +30,7 @@ namespace CA241118
             //        maxi = i;
             //        japvan = true;
             //    }
+
             //}
             //if (japvan)
             //{
@@ -47,7 +48,7 @@ namespace CA241118
             if (maxEmployee != null)
             {
                 Console.WriteLine($"6. feladat: A legöbbet kereső dolgozó a megadott részlegen" +
-                    $"\n\tNév: {maxEmployee.Nev}\n\tNem: {(maxEmployee.Neme ? "férfi" : "nő")}\n\tBelépés: {maxEmployee.Belepes}\n\tBér: {maxEmployee.Ber} Forint");
+                    $"\n\tNév: {maxEmployee.Nev}\n\tNem: {(maxEmployee.Neme ? "férfi" : "nő")}\n\tBelépés: {maxEmployee.Belepes}\n\tBér: {maxEmployee.Ber:000 000} Forint");
             }
             else
             {
@@ -58,7 +59,7 @@ namespace CA241118
             Console.WriteLine("7. feladat: Statisztika");
             foreach (var f in f7)
             {
-                Console.WriteLine($"\t{f.Key} - {f.Count()}");
+                Console.WriteLine($"\t{f.Key} - {f.Count()} Fő");
             }
         }
     }
